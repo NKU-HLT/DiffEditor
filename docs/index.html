@@ -22,16 +22,15 @@
 			<div class="title">
 <!--				<img class="top-img" src="img/background.png"  alt="#"/>-->
 				<div class="new-author">
-					<span style="font-size: 30px; line-height: 1.4">FluentEditor: Text-based Speech Editing by Considering Acoustic and Prosody Consistency</span>
+					<span style="font-size: 30px; line-height: 1.4">DiffEditor: Enhancing Speech Editing with Semantic Enrichment and Acoustic Consistency</span>
 					<br><br>
-					<span style="font-size: 20px; line-height: 1"><b>Rui Liu<sup>1</sup>, Jiatian Xi<sup>1</sup>, Ziyue Jiang<sup>2</sup>, Haizhou Li<sup>3,4</sup></b></span><br> 
+					<span style="font-size: 20px; line-height: 1"><b>Yang Chen<sup>1</sup>, Yuhang Jia<sup>1</sup>, Shiwan Zhao<sup>1</sup>, Ziyue Jiang<sup>2</sup>,  Haoran Li<sup>1</sup>, Jiarong Kang<sup>1</sup> and Yong Qin<sup>1</sup>  </b></span><br> 
 					<span>
-						<sup>1</sup>Speech Understanding and Speech Generation (S2) Lab, Inner Mongolia University, Hohhot, China </br>
+						<sup>1</sup>College of Computer Science, Nankai University, Tianjin, China </br>
 						<sup>2</sup>Zhejiang University, China</br>
-						<sup>3</sup>Shenzhen Research Institute of Big Data, School of Data Science,The Chinese University of Hong Kong, Shenzhen(CUHK-Shenzhen), China</br>
-						<sup>4</sup>National University of Singapore, Singapore</br>
+						
 					</span><br>
-					<span>liurui_imu@163.com, x_jiatian@163.com, ziyuejiang@zju.edu.cn, haizhouli@cuhk.edu.cn</span>
+					<span>2120230617@mail.nankai.edu.cn</span>
 				</div> 
 			</div>
 			<div class="content">
@@ -39,10 +38,23 @@
 				<div class="section">
 					<div class="section-title">Abstract</div>
 					<div class="section-content abstract">
-						Text-based speech editing (TSE) techniques are designed to enable users to edit the output audio by modifying the input text transcript instead of the audio itself. Despite much progress in neural network-based TSE techniques, the current techniques have focused on reducing the difference between the generated speech segment and the reference target in the editing region, ignoring its local and global fluency in the context and original utterance.
-						To maintain the speech fluency, we propose a fluency speech editing model, termed FluentEditor, by considering fluency-aware training criterion in the TSE training. Specifically, the acoustic consistency constraint aims to smooth the transition between the edited region and its neighboring acoustic segments consistent with the ground truth, while the prosody consistency constraint seeks to ensure that the prosody attributes within the edited regions remain consistent with the overall style of the original utterance.
-						The subjective and objective experimental results on VCTK demonstrate that our FluentEditor outperforms all advanced baselines in terms of naturalness and fluency. The audio samples and code are available at: <a href="https://github.com/ai-s2-lab/fluenteditor">https://github.com/ai-s2-lab/fluenteditor</a>
-					</div>
+						As text-based speech editing becomes increasingly
+						prevalent, the demand for unrestricted free-text editing continues
+						to grow. However, existing speech editing techniques encounter
+						significant challenges, particularly in maintaining intelligibility
+						and acoustic consistency when dealing with out-of-domain (OOD)
+						text. In this paper, we introduce DiffEditor, a novel speech
+						editing model designed to enhance performance in OOD text
+						scenarios through semantic enrichment and acoustic consistency.
+						To improve the intelligibility of the edited speech, we enrich
+						the semantic information of phoneme embeddings by integrating
+						word embeddings extracted from a pretrained language model.
+						Furthermore, we emphasize that inter-frame smoothing properties are critical for modeling acoustic consistency, and thus
+						we propose a first-order loss function to promote smoother
+						transitions at editing boundaries and enhance the overall fluency
+						of the edited speech. Experimental results demonstrate that our
+						model achieves state-of-the-art performance in both in-domain
+						and OOD text scenarios.					</div>
 				</div>
 				<div class="section">
 					<div class="section-title">Speech Demo</div>
