@@ -5,11 +5,11 @@
 		<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 		<meta charset="utf-8">
 		<title>DiffEditor Demo</title>
-		<link type="text/css" href="../css/basic.css" rel="stylesheet">
-		<link type="text/css" href="../css/index.css" rel="stylesheet">
-		<link type="text/css" href="../css/bootstrap.min.css" rel="stylesheet">
-		<script type='text/javascript' src="../js/jquery-3.3.1.min.js"></script>
-		<script type='text/javascript' src="../js/index.js"></script>
+		<link type="text/css" href="./css/basic.css" rel="stylesheet">
+		<link type="text/css" href="./css/index.css" rel="stylesheet">
+		<link type="text/css" href="./css/bootstrap.min.css" rel="stylesheet">
+		<script type='text/javascript' src="./js/jquery-3.3.1.min.js"></script>
+		<script type='text/javascript' src="./js/index.js"></script>
 	</head>
 	<style>
 		body {
@@ -54,7 +54,7 @@
 						transitions at editing boundaries and enhance the overall fluency
 						of the edited speech. Experimental results demonstrate that our
 						model achieves state-of-the-art performance in both in-domain
-						and OOD text scenarios.					</div>
+						and OOD text scenarios.  The audio samples and code are available at: <a href="https://github.com/NKU-HLT/DiffEditor">https://github.com/NKU-HLT/DiffEditor</a>				</div>
 				</div>
 				<div class="section">
 					<div class="section-title">Speech Demo</div>
@@ -91,7 +91,7 @@
 								  <strong>p308_100</strong>
 							  </td>
 							  <td style="text-align: center">
-							  	<img src="./resources/out_insert/fluenteditor/out_spec/p308_100/mel_gt.png" style="max-width: 80%; height: auto;"></br></br>
+							  	<!-- <img src="./resources/out_insert/fluenteditor/out_spec/p308_100/mel_gt.png" style="max-width: 80%; height: auto;"></br></br> -->
 							  	<audio controls="controls" style="max-width: 80%; width: 80%;">
 									<source src="./resources/out_insert/fluenteditor/similarity/p308_100_ref.wav" autoplay/>
 								</audio>
@@ -102,7 +102,7 @@
 							  </td>
 
 							  <td style="text-align: center">
-							  	<img src="./resources/out_insert/fluenteditor/out_spec/p308_100/mel_out.png" style="max-width: 80%; height: auto;"></br></br>
+							  	<!-- <img src="./resources/out_insert/fluenteditor/out_spec/p308_100/mel_out.png" style="max-width: 80%; height: auto;"></br></br> -->
 								<audio controls="controls" style="max-width: 80%; width: 80%;">
 									<source src="./resources/out_insert/fluenteditor/similarity/p308_100.wav" autoplay/>
 								</audio>
@@ -120,7 +120,7 @@
 								<strong>p272_017</strong>
 							  </td>
 							  <td style="text-align: center">
-							  	<img src="./resources/out_insert/fluenteditor/out_spec/p272_017/mel_gt.png" style="max-width: 80%; height: auto;"></br></br>
+							  	<!-- <img src="./resources/out_insert/fluenteditor/out_spec/p272_017/mel_gt.png" style="max-width: 80%; height: auto;"></br></br> -->
 							  	<audio controls="controls" style="max-width: 80%; width: 80%;">
 									<source src="./resources/out_insert/fluenteditor/similarity/p272_017_ref.wav" autoplay/>
 								</audio>
@@ -131,7 +131,7 @@
 							  </td>
 
 							  <td style="text-align: center">
-							  	<img src="./resources/out_insert/fluenteditor/out_spec/p272_017/mel_out.png" style="max-width: 80%; height: auto;"></br></br>
+							  	<!-- <img src="./resources/out_insert/fluenteditor/out_spec/p272_017/mel_out.png" style="max-width: 80%; height: auto;"></br></br> -->
 								<audio controls="controls" style="max-width: 80%; width: 80%;">
 									<source src="./resources/out_insert/fluenteditor/similarity/p272_017.wav" autoplay/>
 								</audio>
@@ -172,27 +172,27 @@
 
 							<tr>
 							  <td style="text-align: center">
-								  <strong>p273_225</strong>
+								  <strong>p300_314</strong>
 							  </td>
 							  <td style="text-align: center">
-							  	<img src="./resources/out_replace/fluenteditor/out_spec/p273_225/mel_gt.png" style="max-width: 80%; height: auto;"></br></br>
+							  	<!-- <img src="./resources/out_replace/fluenteditor/out_spec/p273_225/mel_gt.png" style="max-width: 80%; height: auto;"></br></br> -->
 							  	<audio controls="controls" style="max-width: 80%; width: 80%;">
 									<source src="./resources/out_replace/fluenteditor/similarity/p273_225_ref.wav" autoplay/>
 								</audio>
 								<br><br>
-								<strong>Original_Text:</strong>He is obviously very dangerous.
+								<strong>Original_Text:</strong>it is just completely erased.
 
 
 							  </td>
 
 							  <td style="text-align: center">
-							  	<img src="./resources/out_replace/fluenteditor/out_spec/p273_225/mel_out.png" style="max-width: 80%; height: auto;"></br></br>
+							  	<!-- <img src="./resources/out_replace/fluenteditor/out_spec/p273_225/mel_out.png" style="max-width: 80%; height: auto;"></br></br> -->
 								<audio controls="controls" style="max-width: 80%; width: 80%;">
-									<source src="./resources/out_replace/fluenteditor/similarity/p273_225.wav" autoplay/>
+									<source src="./resources/sota/p300_314.wav" autoplay/>
 								</audio>
 								<br><br>
 								<strong>Edited_Text:</strong>
-								He is <mark><u>distinctly</u>(<del>obviously</del>)</mark> very dangerous.
+								it is just <mark><u> thoroughly eradicated </u> (<del>completely erased</del>)</mark> .
 
 							  </td>
 
@@ -201,27 +201,28 @@
 
 							<tr>
 							  <td style="text-align: center">
-								<strong>p363_352</strong>
+								<strong>p300_370</strong>
 							  </td>
 							  <td style="text-align: center">
-							  	<img src="./resources/out_replace/fluenteditor/out_spec/p363_352/mel_gt.png" style="max-width: 80%; height: auto;"></br></br>
+							  	<!-- <img src="./resources/out_replace/fluenteditor/out_spec/p363_352/mel_gt.png" style="max-width: 80%; height: auto;"></br></br> -->
 							  	<audio controls="controls" style="max-width: 80%; width: 80%;">
 									<source src="./resources/out_replace/fluenteditor/similarity/p363_352_ref.wav" autoplay/>
 								</audio>
 								<br><br>
-								<strong>Original_Text:</strong>He was later deported.
+								<strong>Original_Text:</strong>i think , at last , the company will find itself again .
 
 
 							  </td>
 
 							  <td style="text-align: center">
-							  	<img src="./resources/out_replace/fluenteditor/out_spec/p363_352/mel_out.png" style="max-width: 80%; height: auto;"></br></br>
+							  	<!-- <img src="./resources/out_replace/fluenteditor/out_spec/p363_352/mel_out.png" style="max-width: 80%; height: auto;"></br></br> -->
 								<audio controls="controls" style="max-width: 80%; width: 80%;">
-									<source src="./resources/out_replace/fluenteditor/similarity/p363_352.wav" autoplay/>
+									<source src="./resources/sota/p300_370.wav" autoplay/>
 								</audio>
 								<br><br>
 								<strong>Edited_Text:</strong>
-								He was <mark><u>eventually and reluctantly</u>(<del>later</del>)</mark> deported.
+								i think ,<mark><u> coca cola </u>(<del>completely erased</del>) </mark> , the company will find itself again .
+
 
 							  </td>
 
