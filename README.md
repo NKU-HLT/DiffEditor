@@ -9,7 +9,7 @@
 
 This repo contains official PyTorch implementations of:
 
-- [DiffEditor: Enhancing Speech Editing with Semantic Enrichment and Acoustic Consistency]
+- DiffEditor: Enhancing Speech Editing with Semantic Enrichment and Acoustic Consistency
 [Demo page](https://nku-hlt.github.io/DiffEditor/) | [Code](https://github.com/NKU-HLT/DiffEditor) # to be done later
 <!-- <p align="center">
     <br>
