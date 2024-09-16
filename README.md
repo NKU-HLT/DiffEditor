@@ -1,6 +1,6 @@
 
 <h1 align="center">
-<p> FluentEditor: text-based speech editing by considering acoustic and prosody consistency </p>
+<p> DiffEditor: Enhancing Speech Editing with Semantic Enrichment and Acoustic Consistency </p>
 </h1>
 
 
@@ -11,11 +11,11 @@ This repo contains official PyTorch implementations of:
 
 - [DiffEditor: Enhancing Speech Editing with Semantic Enrichment and Acoustic Consistency]
 [Demo page](https://nku-hlt.github.io/DiffEditor/) | [Code](https://github.com/NKU-HLT/DiffEditor) # to be done later
-<p align="center">
+<!-- <p align="center">
     <br>
     <img src="assets/spec_denoiser.gif" width="400" height="180"/>
     <br>
-</p>
+</p> -->
 This repo contains unofficial PyTorch implementations of:
 
 - [FluentSpeech: Stutter-Oriented Automatic Speech Editing with Context-Aware Diffusion Models](https://github.com/Zain-Jiang/Speech-Editing-Toolkit) (ACL 2023) 
@@ -78,8 +78,8 @@ python data_gen/tts/base_binarizer.py
 
 ## Train
 ```bash
-# Example run for Fluenteditor.
-CUDA_VISIBLE_DEVICES=0 python tasks/run.py --dir /path/to/your/fluenteditor --config egs/fluenteditor.yaml --exp_name fluenteditor --reset
+# Example run for DiffEditor.
+CUDA_VISIBLE_DEVICES=0 python tasks/run.py --dir /path/to/your/DiffEditor --config egs/DiffEditor.yaml --exp_name DiffEditor --reset
 ```
 
 
@@ -92,13 +92,13 @@ We provide the data structure of inference in inference/example.csv. `text` and 
 
 ```bash
 # run with one example
-python inference/tts/fluenteditor.py --exp_name fluenteditor
+python inference/tts/DiffEditor.py --exp_name DiffEditor
 ```
 
 ## Evaluation
 
 ```bash
-# Example Objective Evaluation for Fluenteditor.
+# Example Objective Evaluation for DiffEditor.
 # You can use the following objective evaluation metrics: MCD, STOI, PESQ
 python eval/get_metrics.py
 ```
