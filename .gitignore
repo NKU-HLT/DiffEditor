@@ -4,3 +4,4 @@ cache/*
 data/binary/*
 data/processed/*
 data/raw/*
+cache
