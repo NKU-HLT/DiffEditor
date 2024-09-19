@@ -1,0 +1,6 @@
+id,item_name,text,edited_text,wav_fn_orig,edited_region,region
+1,p287_181,"It could be done by experts and lawyers","It could be Donald Trump who may ascend to the presidency ",inference/test_set/en_cs/p287_181.wav,"[4,11]","[4,8]"
+2,p335_098,"harrowing is easy after all ","Michael Jackson's dance moves is easy after all ",inference/test_set/en_cs/p335_098.wav,"[1,4]","[1,1]"
+3,p231_303,"i was just so determined .","The man responsible for the Holocaust, Adolf Hitler, was just so determined .",inference/test_set/en_cs/p231_303.wav,"[1,11]","[1,2]"
+4,p336_008,"these take the shape of a long round arch , with its path high above, and its two ends apparently beyond the horizon ","these take the shape of a long round arch , with its path high above, just like medieval Moroccan architecture ",inference/test_set/en_cs/p336_008.wav,"[17,21]","[17,24]"
+5,p285_270,"The decision was announced at its annual conference in Dunfermline.","The decision was announced  at its annual conference in  Shanghai China ",inference/test_set/en_cs/p285_270.wav,"[10,11]","[10,10]"
