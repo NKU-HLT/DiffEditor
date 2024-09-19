@@ -62,17 +62,17 @@ class BaseBinarizer:
     @property
     def train_item_names(self):
         # 400 for seen, 4182 for unseen
-        range_ = self._convert_range([300, -1])
+        range_ = self._convert_range([4182, -1])
         return self.item_names[range_[0]:range_[1]]
 
     @property
     def valid_item_names(self):
-        range_ = self._convert_range([0, 300])
+        range_ = self._convert_range([0, 4182])
         return self.item_names[range_[0]:range_[1]]
 
     @property
     def test_item_names(self):
-        range_ = self._convert_range([0, 300])
+        range_ = self._convert_range([0, 4182])
         return self.item_names[range_[0]:range_[1]]
 
     # def _convert_range(self, range_):
