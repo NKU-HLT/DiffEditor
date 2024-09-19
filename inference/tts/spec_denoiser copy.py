@@ -333,7 +333,7 @@ class SpecDenoiserInfer(BaseTTSInfer):
         #    使得eos和sos是和跟他最近的一个phoneme类别一致
         #    
             
-
+ 
             # language_id=torch.zeros(1,edited_mel2ph.size(1))
             # language_id[0] = edited_txt_tokens[0][edited_mel2ph[0]-1]
             # language_id = ((language_id>=170)& (language_id<=238)).int()
@@ -644,10 +644,7 @@ class SpecDenoiserInfer(BaseTTSInfer):
 
         os.makedirs('infer_out', exist_ok=True)
         for item in dataset_info:
-            try:
-                infer_one(item)
-            except Exception as e:
-                continue
+            infer_one(item)
 
 
 def load_dataset_info(file_path):
@@ -714,15 +711,13 @@ def data_preprocess(file_path, input_directory, dictionary_path, acoustic_model_
         os.system(f'cp -f {wav_fn_orig} inference/audio/{item_name}.wav')
 
     print("Generating forced alignments with mfa. Please wait for about several minutes.")
-    print(' '.join(
-        ['mfa align -j 4 --clean', input_directory, dictionary_path, acoustic_model_path, output_directory]))
     mfa_out = output_directory
     if os.path.exists(mfa_out):
         shutil.rmtree(mfa_out)
     command = ' '.join(
         ['mfa align -j 4 --clean', input_directory, dictionary_path, acoustic_model_path, output_directory])
 
-    # print(command)
+    print(command)
    
     os.system(command)
   

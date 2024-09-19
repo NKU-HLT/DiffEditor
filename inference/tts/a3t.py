@@ -145,11 +145,7 @@ class StutterSpeechInfer(BaseTTSInfer):
         }
         infer_ins = cls(hp)
         wav_out, wav_gt, mel_out, mel_gt = infer_ins.infer_once(inp)
-    # def infer_once(self, inp):
-    #     inp = self.preprocess_input(inp)
-    #     output = self.forward_model(inp)
-    #     output = self.postprocess_output(output)
-    #     return output
+
         os.makedirs('infer_out', exist_ok=True)
         save_wav(wav_out, f'inference/out/wav_out.wav', hp['audio_sample_rate'])
         save_wav(wav_gt, f'inference/out/wav_gt.wav', hp['audio_sample_rate'])
