@@ -68,6 +68,15 @@ mkdir pretrained/hifigan_hifitts
 ```
 download `model_ckpt_steps_2168000.ckpt`, `config.yaml`, from https://drive.google.com/drive/folders/1n_0tROauyiAYGUDbmoQ__eqyT_G4RvjN?usp=sharing to `pretrained/hifigan_hifitts`
 
+
+## Download the pre-trained bert
+```
+mkdir cache
+```
+
+<!-- https://huggingface.co/google-bert/bert-base-multilingual-cased -->
+download `bert-base-multilingual-cased` directory, from https://huggingface.co/google-bert/bert-base-multilingual-cased to `cache/bert-base-multilingual-cased`
+
 ## Data Preprocess
 ```bash
 # The default dataset is ``vctk``.

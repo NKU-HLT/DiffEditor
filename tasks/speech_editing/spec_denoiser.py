@@ -76,7 +76,7 @@ class SpeechDenoiserTask(SpeechEditingBaseTask):
             self.add_diff_loss(output['mel_out'], time_mel_masks, target, sample, losses, postfix="_coarse")
             
             
-         if "use_reversal_classifier_phoneme" in hparams and hparams["use_reversal_classifier_phoneme"]:
+        if "use_reversal_classifier_phoneme" in hparams and hparams["use_reversal_classifier_phoneme"]:
             losses['use_reversal_classifier_phoneme']=hparams['reversal_classifier_w']*self.model.fs.reversal_classifier.loss(sample['txt_lengths'],sample['spk_ids'],output['speaker_prediction_phoneme'])/(hparams['audio_num_mel_bins']+2)
         
         
