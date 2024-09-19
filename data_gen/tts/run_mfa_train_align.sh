@@ -12,11 +12,11 @@ MFA_CMD=${MFA_CMD:-"train"}
 # rm -rf $BASE_DIR/mfa_outputs_tmp
 # echo " mfa train $BASE_DIR/$MFA_INPUTS $BASE_DIR/mfa_dict2.txt $BASE_DIR/mfa_outputs_tmp -t $BASE_DIR/mfa_tmp -o $BASE_DIR/$MODEL_NAME.zip --clean -j $NUM_JOB --config_path $2"
 if [ "$MFA_CMD" = "train" ]; then
-  mfa train $BASE_DIR/$MFA_INPUTS $BASE_DIR/mfa_dict2.txt $BASE_DIR/mfa_outputs_tmp -t $BASE_DIR/mfa_tmp -o $BASE_DIR/$MODEL_NAME.zip --clean -j $NUM_JOB --config_path $2
+  mfa train $BASE_DIR/$MFA_INPUTS $BASE_DIR/mfa_dict.txt $BASE_DIR/mfa_outputs_tmp -t $BASE_DIR/mfa_tmp -o $BASE_DIR/$MODEL_NAME.zip --clean -j $NUM_JOB --config_path $2
 fi
 
 # rm -rf $BASE_DIR/mfa_tmp $BASE_DIR/$MFA_OUTPUTS
-#mkdir -p $BASE_DIR/$MFA_OUTPUTS
+mkdir -p $BASE_DIR/$MFA_OUTPUTS
 find $BASE_DIR/mfa_outputs_tmp -regex ".*\.TextGrid" -print0 | xargs -0 -i mv {} $BASE_DIR/$MFA_OUTPUTS/
 #if [ -e "$BASE_DIR/mfa_outputs_tmp/unaligned.txt" ]; then
 #  cp $BASE_DIR/mfa_outputs_tmp/unaligned.txt $BASE_DIR/

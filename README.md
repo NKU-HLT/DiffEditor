@@ -45,7 +45,8 @@ You can download the VCTK dataset from the official website. Follow these steps:
 Extract the downloaded file to your desired directory. For example:
 
 ```bash
-tar -xzf VCTK-Corpus.tar.gz -C ../data
+mkdir data/raw
+tar -xzf VCTK-Corpus.tar.gz -C ../data/raw
 ```
 
 ## Install Dependencies
@@ -80,9 +81,9 @@ download `bert-base-multilingual-cased` directory, from https://huggingface.co/g
 ## Data Preprocess
 ```bash
 # The default dataset is ``vctk``.
-python data_gen/tts/base_preprocess.py
-python data_gen/tts/run_mfa_train_align.sh
-python data_gen/tts/base_binarizer.py
+python data_gen/tts/base_preprocess.py --config egs/DiffEditor.yaml
+bash data_gen/tts/run_mfa_train_align.sh  vctk  data_gen/tts/mfa_train_config_vctk.yaml
+python data_gen/tts/base_binarizer.py --config egs/DiffEditor.yaml
 ```
 
 ## Train
@@ -123,6 +124,7 @@ Any organization or individual is prohibited from using any technology mentioned
 1. If you find the ``mfa_dict.txt``, ``mfa_model.zip``, ``phone_set.json``, or ``word_set.json`` are missing in inference, you need to run the preprocess script in our repo to get them. You can also download all of these files you need for inferencing the pre-trained model from
 ``https://drive.google.com/drive/folders/1BOFQ0j2j6nsPqfUlG8ot9I-xvNGmwgPK?usp=sharing`` and put them in ``data/processed/vctk``. 
 2. Please specify the MFA version as 2.0.0rc3.
+3. in order to reproduce the paper result, you need to use the testset shown in data/vctk_test_split.csv 
 
 
 
