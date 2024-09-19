@@ -1,4 +1,3 @@
-data/*
 pretrained/hifigan_hifitts/model_ckpt_steps_2168000.ckpt
 checkpoints/fluenteditor/*
 cache/*
