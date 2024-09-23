@@ -102,7 +102,9 @@ We provide the data structure of inference in inference/example.csv. `text` and 
 
 ```bash
 # run with one example
-python inference/tts/DiffEditor.py --exp_name DiffEditor
+bash run_test.sh  DiffEditor   inference/example_en.csv  en  inference/raw_wav   1
+
+# python inference/tts/DiffEditor.py --exp_name DiffEditor
 ```
 
 ## Evaluation

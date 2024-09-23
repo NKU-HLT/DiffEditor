@@ -66,7 +66,7 @@ class SpecDenoiserInfer(BaseTTSInfer):
         self.spk_embeding = VoiceEncoder(device='cpu')
         # 由于self.vocoder = self.build_vocoder()将hparams设置为了pretrained里面的参数，导致了部分参数的丢失，这里我们继承一下参数
         from transformers import BertTokenizer, BertModel
-        cache_path="/home/chenyang/chenyang_space/backup/Speech-Editing-Toolkit_add_word_embedding_vctk/cache/bert-base-multilingual-cased"
+        cache_path="cache/bert-base-multilingual-cased"
 
         self.word_tokenizer=BertTokenizer.from_pretrained(cache_path)
         self.word_encoder_bert=BertModel.from_pretrained(cache_path)
@@ -77,7 +77,7 @@ class SpecDenoiserInfer(BaseTTSInfer):
         import os
         import json
         
-        base_dir="/home/chenyang/chenyang_space/backup/Speech-Editing-Toolkit_add_word_embedding_vctk/data/processed/vctk"
+        base_dir="data/processed/vctk"
         from utils.text.text_encoder import is_sil_phoneme, build_token_encoder
         word_encoder = build_token_encoder(f'{base_dir}/word_set.json')
         with open(os.path.join(base_dir,'word_set.json'), 'r') as file:
@@ -85,7 +85,7 @@ class SpecDenoiserInfer(BaseTTSInfer):
                     print(len(vctk_word))
                     
         word_proj_vctk=dict()   
-    
+        # print(vctk_word)
         for i in vctk_word:
             word_proj_vctk[word_encoder.encode(i)[0]]=self.word_tokenizer.encode(i, add_special_tokens=False) 
             
@@ -93,7 +93,7 @@ class SpecDenoiserInfer(BaseTTSInfer):
         word_proj_vctk[word_encoder.encode("<BOS>")[0]]=[101]
         word_proj_vctk[word_encoder.encode("|")[0]]=None
         self.word_proj_vctk=word_proj_vctk
-        
+        # print(word_proj_vctk)
 
     def build_model(self):
         model = GaussianDiffusion(
@@ -326,14 +326,26 @@ class SpecDenoiserInfer(BaseTTSInfer):
         # Create time mask
         time_mel_masks = torch.zeros((1, edited_mel2ph.size(1), 1)).to(self.device)
         time_mel_masks[:, head_idx:tail_idx] = 1.0
-        
+        import json
+        with open("/home/chenyang/chenyang_space/backup/Speech-Editing-Toolkit/inference/ref_mel.json","a+") as file:
+            json.dump(ref_mels.tolist(),file)
+        # json.dump(data1, file)
+            file.write("\n")
+            # json.dump(';',file)
+            
+        with open("/home/chenyang/chenyang_space/backup/Speech-Editing-Toolkit/inference/mel2ph.json","a+") as file:
+            json.dump(edited_mel2ph.tolist(),file)
+            file.write("\n")
+            # json.dump(';',file)
+            
+            
         with torch.no_grad():
             
         #    这里的spk_id仅仅是用来判断language的
         #    使得eos和sos是和跟他最近的一个phoneme类别一致
         #    
             
-
+ 
             # language_id=torch.zeros(1,edited_mel2ph.size(1))
             # language_id[0] = edited_txt_tokens[0][edited_mel2ph[0]-1]
             # language_id = ((language_id>=170)& (language_id<=238)).int()
@@ -644,10 +656,7 @@ class SpecDenoiserInfer(BaseTTSInfer):
 
         os.makedirs('infer_out', exist_ok=True)
         for item in dataset_info:
-            try:
-                infer_one(item)
-            except Exception as e:
-                continue
+            infer_one(item)
 
 
 def load_dataset_info(file_path):
@@ -714,15 +723,13 @@ def data_preprocess(file_path, input_directory, dictionary_path, acoustic_model_
         os.system(f'cp -f {wav_fn_orig} inference/audio/{item_name}.wav')
 
     print("Generating forced alignments with mfa. Please wait for about several minutes.")
-    print(' '.join(
-        ['mfa align -j 4 --clean', input_directory, dictionary_path, acoustic_model_path, output_directory]))
     mfa_out = output_directory
     if os.path.exists(mfa_out):
         shutil.rmtree(mfa_out)
     command = ' '.join(
         ['mfa align -j 4 --clean', input_directory, dictionary_path, acoustic_model_path, output_directory])
 
-    # print(command)
+    print(command)
    
     os.system(command)
   
@@ -832,8 +839,8 @@ if __name__ == '__main__':
     
     test_file_path = args.test_file_path
     test_wav_directory = args.test_wav_directory
-    dictionary_path = 'data/processed/talcs/mfa_dict2.txt'
-    acoustic_model_path = 'data/processed/talcs/mfa_model.zip'
+    dictionary_path = 'data/mfa_dict2.txt'
+    acoustic_model_path = 'data/mfa_model.zip'
     output_directory = test_wav_directory+'/mfa_out'
 
     # output_directory =  '/home/chenyang/chenyang_space/speech_editing_and_tts/projects/Speech-Editing-Toolkit/inference/test_set/zh_cs/mfa_out'

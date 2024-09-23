@@ -1,7 +1,7 @@
 pretrained/hifigan_hifitts/model_ckpt_steps_2168000.ckpt
-checkpoints/fluenteditor/*
+checkpoints/*
 cache/*
 data/binary/*
 data/processed/*
 data/raw/*
-cache
+cache/
