@@ -231,7 +231,7 @@
 
 				<div class="section">
 					<div class="section-content">
-						<div class="subsection-title">2. Comparison between FluentEditor and Other Systems especially in fluency and intelligibility </div>
+						<div class="subsection-title">2. Comparison between DiffEditor and Other Systems especially in fluency and intelligibility </div>
 						<div class="subsection-exp-1">
 							<div class="section">
 								<li> <b>DiffEditor</b>: DiffEditor enhance performance in OOD text scenarios through semantic enrichment and acoustic consistency;
@@ -256,10 +256,11 @@
 								  <thead>
 								    <tr>
 									  <th style="text-align: center"><strong>GT</strong></th>
-								      <th style="text-align: center"><strong>FluentEditor</strong></th>
+								      <th style="text-align: center"><strong>DiffEditor</strong></th>
 								      <th style="text-align: center"><strong>FluentSpeech</strong></th>
 									  <th style="text-align: center"><strong>\( A^3T \)</strong></th>
 								      <th style="text-align: center"><strong>CampNet</strong></th>
+									  <th style="text-align: center"><strong>EditSpeech</strong></th>
 								    </tr>
 								  </thead>
 								  <tbody>
@@ -273,7 +274,7 @@
 									  <td colspan="4" style="text-align: left"><span>
 									  <strong>Original_Text: </strong>its good to start with judith . </br>
 									  <strong>Edited_Text: </strong>
-									  its good to start with <mark><u>starbucks</u>(<del>judith</del>) . you can do it step by step .</mark>
+									  its good to start with <mark><u>starbucks</u>(<del>judith</del>) . </mark>
 									
 									  </span></td>
 									</tr>
@@ -296,18 +297,29 @@
 									    	<source src="./resources/fluentspeech/p300_325.wav" autoplay/>
 									    </audio>
 									  </td>
+
 									  <td style="text-align: center">
 									    <!-- <img src="./resources/out_insert/a3t/out_spec/p294_237/mel_out.png" style="max-width: 95%; height: auto;"></br></br> -->
 									    <audio controls="controls" style="max-width: 95%; width: 95%;">
-									    	<source src="./resources/out_insert/a3t/similarity/p294_237.wav" autoplay/>
+									    	<source src="./resources/a3t/p300_325.wav" autoplay/>
 									    </audio>
 									  </td>
+
 									  <td style="text-align: center">
 									    <!-- <img src="./resources/out_insert/campnet/out_spec/p294_237/mel_out.png" style="max-width: 95%; height: auto;"></br></br> -->
 									    <audio controls="controls" style="max-width: 95%; width: 95%;">
-									    	<source src="./resources/out_insert/campnet/similarity/p294_237.wav" autoplay/>
+									    	<source src="./resources/campnet/p300_325.wav" autoplay/>
 									    </audio>
 									  </td>
+
+									  <td style="text-align: center">
+									    <!-- <img src="./resources/out_insert/campnet/out_spec/p294_237/mel_out.png" style="max-width: 95%; height: auto;"></br></br> -->
+									    <audio controls="controls" style="max-width: 95%; width: 95%;">
+									    	<source src="./resources/editspeech/p300_325.wav" autoplay/>
+									    </audio>
+									  </td>
+
+
 									</tr>
 
 
@@ -344,15 +356,25 @@
 										<td style="text-align: center">
 										  <!-- <img src="./resources/out_insert/a3t/out_spec/p256_053/mel_out.png" style="max-width: 95%; height: auto;"></br></br> -->
 										  <audio controls="controls" style="max-width: 95%; width: 95%;">
-											  <source src="./resources/out_insert/a3t/similarity/p256_053.wav" autoplay/>
+											  <source src="./resources/a3t/p300_175.wav" autoplay/>
 										  </audio>
 										</td>
 										<td style="text-align: center">
 										  <!-- <img src="./resources/out_insert/campnet/out_spec/p256_053/mel_out.png" style="max-width: 95%; height: auto;"></br></br> -->
 										  <audio controls="controls" style="max-width: 95%; width: 95%;">
-											  <source src="./resources/out_insert/campnet/similarity/p256_053.wav" autoplay/>
+											  <source src="./resources/campnet/p300_175.wav" autoplay/>
 										  </audio>
 										</td>
+
+										<td style="text-align: center">
+											<!-- <img src="./resources/out_insert/campnet/out_spec/p256_053/mel_out.png" style="max-width: 95%; height: auto;"></br></br> -->
+											<audio controls="controls" style="max-width: 95%; width: 95%;">
+												<source src="./resources/editspeech/p300_175.wav" autoplay/>
+											</audio>
+										</td>
+
+
+
 									</tr>
 
 
@@ -393,15 +415,23 @@
 									<td style="text-align: center">
 									  <!-- <img src="./resources/out_replace/a3t/out_spec/p286_427/mel_gt.png" style="max-width: 95%; height: auto;"></br></br> -->
 									  <audio controls="controls" style="max-width: 95%; width: 95%;">
-									  	<source src="./resources/out_replace/a3t/similarity/p286_427.wav" autoplay/>
+									  	<source src="./resources/a3t/p326_141.wav" autoplay/>
 									  </audio>
 									</td>
 									<td style="text-align: center">
 									  <!-- <img src="./resources/out_replace/campnet/out_spec/p286_427/mel_gt.png" style="max-width: 95%; height: auto;"></br></br> -->
 									  <audio controls="controls" style="max-width: 95%; width: 95%;">
-									  	<source src="./resources/out_replace/campnet/similarity/p286_427.wav" autoplay/>
+									  	<source src="./resources/campnet/p326_141.wav" autoplay/>
 									  </audio>
 									</td>
+
+
+									<td style="text-align: center">
+										<!-- <img src="./resources/out_replace/campnet/out_spec/p286_427/mel_gt.png" style="max-width: 95%; height: auto;"></br></br> -->
+										<audio controls="controls" style="max-width: 95%; width: 95%;">
+											<source src="./resources/editspeech/p326_141.wav" autoplay/>
+										</audio>
+									  </td>
 									</tr>
 
 									<tr>
@@ -437,13 +467,20 @@
 									  <td style="text-align: center">
 									    <!-- <img src="./resources/out_replace/a3t/out_spec/p245_345/mel_out.png" style="max-width: 95%; height: auto;"></br></br> -->
 									    <audio controls="controls" style="max-width: 95%; width: 95%;">
-									    	<source src="./resources/out_replace/a3t/similarity/p245_345.wav" autoplay/>
+									    	<source src="./resources/a3t/p326_277.wav" autoplay/>
 									    </audio>
 									  </td>
 									  <td style="text-align: center">
 									    <!-- <img src="./resources/out_replace/campnet/out_spec/p245_345/mel_out.png" style="max-width: 95%; height: auto;"></br></br> -->
 									    <audio controls="controls" style="max-width: 95%; width: 95%;">
-									    	<source src="./resources/out_replace/campnet/similarity/p245_345.wav" autoplay/>
+									    	<source src="./resources/campnet/p326_277.wav" autoplay/>
+									    </audio>
+									  </td>
+
+									  <td style="text-align: center">
+									    <!-- <img src="./resources/out_replace/campnet/out_spec/p245_345/mel_out.png" style="max-width: 95%; height: auto;"></br></br> -->
+									    <audio controls="controls" style="max-width: 95%; width: 95%;">
+									    	<source src="./resources/editspeech/p326_277.wav" autoplay/>
 									    </audio>
 									  </td>
 									</tr>
@@ -457,7 +494,7 @@
 
 						</div>
 
-						<div class="subsection-title">3. Ablation Study of FluentEditor</div>
+						<div class="subsection-title">3. Ablation Study of DiffEditor</div>
 							<div class="subsection-exp-2">
 								<div class="section">
 									To further validate the contribution of our {L}_{FD} and {e}_{word} respectively, two ablation experiments are designed:

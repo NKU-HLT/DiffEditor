@@ -849,7 +849,7 @@ if __name__ == '__main__':
     # os.system('rm -r inference/audio')
     # os.makedirs(f'inference/audio', exist_ok=True)
     dataset_info = data_preprocess(test_file_path, test_wav_directory, dictionary_path, acoustic_model_path,
-                                   output_directory, align=False)
+                                   output_directory, align=True)
 
 
     SpecDenoiserInfer.example_run(dataset_info,test_out_dir)    
