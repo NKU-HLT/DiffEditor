@@ -101,17 +101,16 @@ We provide the data structure of inference in inference/example.csv. `text` and 
 |  0  | 1  | "I'd love to be at the world cup." | "I'd <mark>absolutely</mark> love to be at the world cup." | inference/audio_example/1.wav | [1,3] | [1,2] |
 
 ```bash
-# run with one example
+# run with example_en.csv
 bash run_test.sh  DiffEditor   inference/example_en.csv  en  inference/raw_wav   1
-
-# python inference/tts/DiffEditor.py --exp_name DiffEditor
 ```
+the result is named by DiffEditor_auto in inferecne directory
 
 ## Evaluation
-
+Example Objective Evaluation for DiffEditor.
+You can use the following objective evaluation metrics: MCD, STOI, PESQ
 ```bash
-# Example Objective Evaluation for DiffEditor.
-# You can use the following objective evaluation metrics: MCD, STOI, PESQ
+
 python eval/get_metrics.py
 ```
 
