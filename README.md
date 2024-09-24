@@ -9,32 +9,22 @@
 
 
 
+As text-based speech editing becomes increasingly prevalent, the demand for unrestricted free-text editing continues to grow. However, existing speech editing techniques encounter significant challenges, particularly in maintaining intelligibility and acoustic consistency when dealing with out-of-domain (OOD) text.  
 
-As text-based speech editing becomes increasingly
-prevalent, the demand for unrestricted free-text editing continues
-to grow. However, existing speech editing techniques encounter
-significant challenges, particularly in maintaining intelligibility
-and acoustic consistency when dealing with out-of-domain (OOD)
-text. In this paper, we introduce DiffEditor, a novel speech
-editing model designed to enhance performance in OOD text
-scenarios through semantic enrichment and acoustic consistency.
-To improve the intelligibility of the edited speech, we enrich
-the semantic information of phoneme embeddings by integrating
-word embeddings extracted from a pretrained language model.
-Furthermore, we emphasize that inter-frame smoothing properties are critical for modeling acoustic consistency, and thus
-we propose a first-order loss function to promote smoother
-transitions at editing boundaries and enhance the overall fluency
-of the edited speech. Experimental results demonstrate that our
-model achieves state-of-the-art performance in both in-domain
+In this paper, we introduce DiffEditor, a novel speech editing model designed to enhance performance in OOD text scenarios through semantic enrichment and acoustic consistency. To improve the intelligibility of the edited speech, we enrich the semantic information of phoneme embeddings by integrating word embeddings extracted from a pretrained language model.  
+
+Furthermore, we emphasize that inter-frame smoothing properties are critical for modeling acoustic consistency, and thus we propose a first-order loss function to promote smoother transitions at editing boundaries and enhance the overall fluency of the edited speech.   
+
+Experimental results demonstrate that our model achieves state-of-the-art performance in both in-domain and OOD text scenarios.  
 and OOD text scenarios.
 
 
-the workflow is shown below:
+### Workflow
 
 ![](./resources/workflow.png)
 
 
-
+### Implementation
 This repo contains official PyTorch implementations of:
 
 - [DiffEditor: Enhancing Speech Editing with Semantic Enrichment and Acoustic Consistency](https://arxiv.org/abs/2409.12992)
