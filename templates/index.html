@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Processing</title>
+    <style>
+        body {
+            background-color: #a6e1e2;
+        }
+        h1 {
+            text-align: center; /* 让文本居中 */
+            color: #428bca;
+            font-size: 47px;
+            margin-top: 3%; /* 调整标题的上边距 */
+            position: relative; /* 设置相对定位，用于绘制坐标轴 */
+        }
+        h2 {
+            color: #22394e;
+            font-size: 21px;
+        }
+
+
+        /* 音频输入模块 */
+        .audio-modules-container {
+            display: flex; /* 将容器设置为flex布局 */
+            justify-content: space-around; /* 在主轴上平均分配空间，使块横向并列 */
+            text-align: center; /* 让文本居中 */
+            align-items: center; /* 在交叉轴上居中对齐 */
+            margin-top: 3%; /* 强制应用上边距 */
+            position: relative; /* 设置相对定位，用于绘制坐标轴 */
+        }
+        .audio-module {
+            margin: 10px; /* 调整模块间距 */
+            display: flex;
+            justify-content: center; /* 在主轴上居中对齐 */
+            align-items: center; /* 在交叉轴上居中对齐 */
+        }
+        .audio-modules-container .audio-module button {
+            margin: 6px;
+            display: flex; /* 将容器设置为flex布局 */
+            text-align: center; /* 让文本居中 */
+            padding: 10px 20px; /* 设置按钮的内边距 */
+            font-size: 16px; /* 设置按钮的字体大小 */
+            background-color: rgb(25, 117, 223); /* 设置按钮的背景颜色 */
+            color: white; /* 设置按钮的文本颜色 */
+            border: none; /* 移除按钮的边框 */
+            border-radius: 10px; /* 设置按钮的圆角 */
+        }
+        .audio-modules-container .audio-module button:hover {/* 鼠标悬停时按钮的样式 */
+            background-color: rgb(24, 205, 236); /* 设置悬停时的背景颜色 */
+        }
+
+        .download-button {
+            padding: 10px 20px; /* 设置按钮的内边距 */
+            font-size: 16px; /* 设置按钮的字体大小 */
+            background-color: rgb(25, 117, 223); /* 设置按钮的背景颜色 */
+            color: white; /* 设置按钮的文本颜色 */
+            border: none; /* 移除按钮的边框 */
+            border-radius: 5px; /* 设置按钮的圆角 */
+            text-decoration: none; /* 移除按钮的下划线 */
+        }
+        .download-button:hover {
+            background-color: rgb(24, 205, 236); /* 设置悬停时的背景颜色 */
+        }
+    </style>
+
+
+    <!-- 音频显示模块 -->
+    <!-- 引入WaveSurfer.js库 -->
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <style>
+        body {
+            background-color: #a6e1e2;
+        }
+        .waveform-container {
+            display: flex; /* 将容器设置为flex布局 */
+            justify-content: space-around; /* 在主轴上平均分配空间，使块横向并列 */
+            margin-top: 2%; /* 设置下边距 */
+            position: relative; /* 设置相对定位，用于绘制坐标轴 */
+        }
+        .waveform {
+            border: 1px solid #46b8ec; /* 设置边框 */
+            background-color: #46b8ec; /* 设置背景颜色 */
+            width: 100%;
+            height: 100%;
+            margin: 20px 60px; /* 调整模块间距 */
+        }
+    </style>
+    
+    <!-- 文本输入模块 -->
+    <style>  
+        /* 文本输入 */
+        /* 容器样式 */
+        .input-forms-container {
+            display: flex; /* 将容器设置为flex布局 */
+            justify-content: space-around; /* 在主轴上平均分配空间，使块横向并列 */
+            
+            margin-top: 0%; /* 强制应用上边距 */
+        }
+        
+        /* 表单样式 */
+        .text-input-form {
+            margin: 20px 70px; /* 调整表单间距 */
+            width: 400px;
+            height: 20%;
+            font-size: 21px;
+        }
+
+        .submit-button-container {
+            display: flex;
+            justify-content: center; /* 在主轴上居中对齐 */
+            align-items: center; /* 在交叉轴上居中对齐 */
+        }
+        
+        /* 提交按钮 */
+        .submit-button {            
+            padding: 10px 20px; /* 设置按钮的内边距 */
+            font-size: 21px; /* 设置按钮的字体大小 */
+            background-color: rgb(25, 117, 223); /* 设置按钮的背景颜色 */
+            color: white; /* 设置按钮的文本颜色 */
+            border: none; /* 移除按钮的边框 */
+            border-radius: 5px; /* 设置按钮的圆角 */
+            text-decoration: none; /* 移除按钮的下划线 */
+            margin-top: 1%; /* 强制应用上边距 */
+
+            height: 60px;
+            width: 300px;
+        }
+        
+        /* 按钮悬停时的样式 */
+        .submit-button:hover {
+            background-color: rgb(24, 205, 236); /* 设置悬停时的背景颜色 */
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>英语语音自动编辑系统</h1>
+
+    <div class="audio-modules-container">
+        <div class="audio-module">
+            <h2>Original Audio &nbsp</h2>
+            <audio id="originalAudioPlayer" controls></audio>
+            <button id="recordButton" onclick="record()">Record</button>
+            <input type="file" id="uploadWavInput" accept="audio/wav" style="display: none;">
+            <label for="uploadWavInput" style="cursor: pointer;"></label>
+            <button id="uploadWavButton">Upload</button>
+            <button id="uploadWavButton" onclick="saveRecordingLocally()">Download</button>
+        </div>
+
+        <div class="audio-module">
+            <h2>Processed Audio &nbsp</h2>
+            <audio id="targetAudioPlayer" controls></audio>
+            <!-- <a href="/download">Download</a> -->
+            <button class="download-button" onclick="window.location.href='/download'">Download</button>
+        </div>
+    </div>
+
+    <div class="waveform-container">
+        <!-- 原始音频波形图容器 -->
+        <div id="originalWaveform" class="waveform"></div>
+        <!-- 处理后音频波形图容器 -->
+        <div id="targetWaveform" class="waveform"></div>
+    </div>
+
+    <div class="input-forms-container">
+        <div class="text-input-form">
+            <form id="originalTextInputForm">
+                <label for="original_text">Original Text:</label><br>
+                <textarea id="original_text" name="original_text" rows="3" cols="30" style="font-size: 28px; background-color: rgb(202, 235, 229);"></textarea><br>
+            </form>
+        </div>
+
+        <div class="text-input-form">
+            <form id="targetTextInputForm">
+                <label for="target_text">Target Text:</label><br>
+                <textarea id="target_text" name="target_text" rows="3" cols="30" style="font-size: 28px; background-color: rgb(202, 235, 229);"></textarea><br>
+            </form>
+        </div>
+    </div>
+    <div class="submit-button-container">
+        <button id = "process" class="submit-button" onclick="submitForm()">Process</button>
+    </div>
+
+
+    <script src="{{ url_for('static', filename='js/control.js') }}"></script>
+    <script>
+        let recordButton = document.getElementById('recordButton');
+        let submitButton = document.getElementById('process');
+
+        let originalAudioPlayer = document.getElementById('originalAudioPlayer');
+        let targetAudioPlayer = document.getElementById('targetAudioPlayer');
+        let originalWaveform = WaveSurfer.create({
+            container: '#originalWaveform',
+            waveColor: 'navy',
+            progressColor: 'maroon'
+        });
+        let targetWaveform = WaveSurfer.create({
+            container: '#targetWaveform',
+            waveColor: 'navy',
+            progressColor: 'maroon'
+        });
+        // 加载空音频数据以显示边框、背景和坐标轴
+        originalWaveform.load('data:audio/wav;base64,UklGRsJhCABXQVZFZm10IBAAAAABAAEAwF0AAIC7AAACABAAZGF0YRAAAAAADwCAAGAAwABAAEAQwAAACoAAAAAAIAAAAAAAAAAAAAAAABAAQAAAAA');
+        targetWaveform.load('data:audio/wav;base64,UklGRsJhCABXQVZFZm10IBAAAAABAAEAwF0AAIC7AAACABAAZGF0YRAAAAAADwCAAGAAwABAAEAQwAAACoAAAAAAIAAAAAAAAAAAAAAAABAAQAAAAA');
+
+        let audioFile;
+        let blackFile;
+
+        var recorder;
+        var audio = document.querySelector('audio');
+        function startRecording() {
+            originalWaveform.load('data:audio/wav;base64,UklGRsJhCABXQVZFZm10IBAAAAABAAEAwF0AAIC7AAACABAAZGF0YRAAAAAADwCAAGAAwABAAEAQwAAACoAAAAAAIAAAAAAAAAAAAAAAABAAQAAAAA');
+            targetWaveform.load('data:audio/wav;base64,UklGRsJhCABXQVZFZm10IBAAAAABAAEAwF0AAIC7AAACABAAZGF0YRAAAAAADwCAAGAAwABAAEAQwAAACoAAAAAAIAAAAAAAAAAAAAAAABAAQAAAAA');    
+            audioFile = blackFile;
+            HZRecorder.get(function(rec) {
+                recorder = rec;
+                recorder.start();
+            }, {
+                sampleBits: 16,
+                sampleRate: 16000
+            });
+        }
+        function stopRecording() {
+            recorder.stop();
+            var blob = recorder.getBlob();
+            originalAudioPlayer.src = URL.createObjectURL(blob);
+            originalWaveform.loadBlob(blob);
+            audioFile = blob;
+
+        }
+
+        function record() {
+            if (recordButton.textContent == 'Record') {
+                startRecording();
+                recordButton.textContent = 'Stop';
+            } else {
+                stopRecording();
+                recordButton.textContent = 'Record';
+            }
+        }
+
+            
+        // 监听上传 WAV 文件的按钮点击事件
+        const uploadWavButton = document.getElementById('uploadWavButton');
+            uploadWavButton.addEventListener('click', () => {
+                // 触发文件输入框的点击事件，打开文件选择对话框
+            originalWaveform.load('data:audio/wav;base64,UklGRsJhCABXQVZFZm10IBAAAAABAAEAwF0AAIC7AAACABAAZGF0YRAAAAAADwCAAGAAwABAAEAQwAAACoAAAAAAIAAAAAAAAAAAAAAAABAAQAAAAA');
+            targetWaveform.load('data:audio/wav;base64,UklGRsJhCABXQVZFZm10IBAAAAABAAEAwF0AAIC7AAACABAAZGF0YRAAAAAADwCAAGAAwABAAEAQwAAACoAAAAAAIAAAAAAAAAAAAAAAABAAQAAAAA');    
+            audioFile = blackFile;
+            uploadWavInput.click();
+        });
+        
+        // 监听上传 WAV 文件的输入框变化事件
+        const uploadWavInput = document.getElementById('uploadWavInput');
+        uploadWavInput.addEventListener('change', event => {
+            audioFile = event.target.files[0];
+            if (audioFile) {
+                // 读取用户选择的文件并显示到原始音频播放器和波形图中
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const audioBlob = new Blob([e.target.result], { type: 'audio/wav' });
+                    originalAudioPlayer.src = URL.createObjectURL(audioBlob);
+                    originalWaveform.loadBlob(audioBlob);
+                };
+                reader.readAsArrayBuffer(audioFile);
+            }
+        });
+
+        function saveRecordingLocally() {
+            // let audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+            let url = URL.createObjectURL(audioFile);
+            let a = document.createElement('a');
+            document.body.appendChild(a);
+            a.style = 'display: none';
+            a.href = url;
+            a.download = 'original_audio.wav';
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+
+        // 提交表单的函数
+        function submitForm() {
+            submitButton.textContent = 'PleaseWaiting...';
+            // saveRecordingLocally(); 下载自己的录音，目前仅用来Debug.
+            
+            let formData = new FormData();
+            let originalText = document.getElementById('original_text').value;
+            let targetText = document.getElementById('target_text').value;
+            
+            // 添加原始文本和目标文本到 FormData
+            formData.append('original_text', originalText);
+            formData.append('target_text', targetText);
+            
+            // 将录制的音频数据作为文件添加到 FormData
+            // let audioBlob = new Blob(audioChunks, {type: 'audio/wav'});
+            // let audioFile = new File(audioChunks, 'original_audio.wav', { type: 'audio/wav' });
+            if(audioFile) {
+                formData.append('audio', audioFile);
+            } 
+            //else {
+                //    formData.append('audio', audioBlob);
+                //}
+                
+            // 发送 FormData 到后端
+            fetch('/process', {
+                method: 'POST',
+                body: formData
+            })
+            
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+                targetAudioPlayer.src = '/download';
+                targetWaveform.load('/download');
+                submitButton.textContent = 'Process';
+            })
+            .catch(error => {
+                console.error('Error processing audio:', error);
+            });
+            
+            /*
+            while(submitButton.textContent != 'Process') {
+                if(submitButton.textContent = 'PleaseWaiting.') {
+                    submitButton.textContent = 'PleaseWaiting..'
+                } else if(submitButton.textContent = 'PleaseWaiting..'){
+                    submitButton.textContent = 'PleaseWaiting...'
+                } else {
+                    submitButton.textContent = 'PleaseWaiting.'
+                }
+                setTimeout(updateButtonText, 500); // 500毫秒后更新按钮文本
+            }
+            */
+            // submitButton.textContent = 'Process';
+            // audioFile = blackFile;
+            }
+        </script>
+    </body>
+    </html>
+    
