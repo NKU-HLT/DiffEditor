@@ -115,10 +115,14 @@ the result is named by DiffEditor_auto in inferecne directory
 Example Objective Evaluation for DiffEditor.
 You can use the following objective evaluation metrics: MCD, STOI, PESQ
 ```bash
-
 python eval/get_metrics.py
 ```
+## website
 
+You can run the following command to build a website for editing
+```bash
+python app.py
+```
 
 
 
