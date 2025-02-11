@@ -17,9 +17,7 @@ As text-based speech editing becomes increasingly prevalent, the demand for unre
 ### Implementation
 This repo contains official PyTorch implementations of:
 
-- [DiffEditor: Enhancing Speech Editing with Semantic Enrichment and Acoustic Consistency](https://arxiv.org/abs/2409.12992)
-[Demo page](https://nku-hlt.github.io/DiffEditor/) | [Code](https://github.com/NKU-HLT/DiffEditor) 
-
+- [DiffEditor: Enhancing Speech Editing with Semantic Enrichment and Acoustic Consistency]
 
 This repo contains unofficial PyTorch implementations of:
 
@@ -139,18 +137,4 @@ Any organization or individual is prohibited from using any technology mentioned
 
 
 
-<!-- ## Citing
-To cite this repository:
-```bibtex
-@article{liu2023fluenteditor,
-  title={FluentEditor: Text-based Speech Editing by Considering Acoustic and Prosody Consistency},
-  author={Liu, Rui and Xi, Jiatian and Jiang, Ziyue and Li, Haizhou},
-  journal={Proc. InterSpeech2024},
-  year={2024}
-}
 
-``` -->
-
-## Author
-
-E-mail：2120230617@mail.nankai.edu.cn
