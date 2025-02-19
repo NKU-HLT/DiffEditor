@@ -19,6 +19,7 @@ This repo contains official PyTorch implementations of:
 
 - [DiffEditor: Enhancing Speech Editing with Semantic Enrichment and Acoustic Consistency]
  [Demo page]：https://anonymous.4open.science/w/DiffEditor-1843/
+if the Demo page link doesn't work, click the 'website' button in the upper right corner of the page.
 This repo contains unofficial PyTorch implementations of:
 
 - [FluentSpeech: Stutter-Oriented Automatic Speech Editing with Context-Aware Diffusion Models](https://github.com/Zain-Jiang/Speech-Editing-Toolkit) (ACL 2023) 
