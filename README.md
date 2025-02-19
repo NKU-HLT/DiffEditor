@@ -18,12 +18,10 @@ As text-based speech editing becomes increasingly prevalent, the demand for unre
 This repo contains official PyTorch implementations of:
 
 - [DiffEditor: Enhancing Speech Editing with Semantic Enrichment and Acoustic Consistency]
- [Demo page](https://anonymous.4open.science/w/DiffEditor-1843/#)
+ [Demo page]：https://anonymous.4open.science/w/DiffEditor-1843/
 This repo contains unofficial PyTorch implementations of:
 
 - [FluentSpeech: Stutter-Oriented Automatic Speech Editing with Context-Aware Diffusion Models](https://github.com/Zain-Jiang/Speech-Editing-Toolkit) (ACL 2023) 
-  [Demo page](https://speechai-demo.github.io/FluentSpeech/)
-
 - [CampNet: Context-Aware Mask Prediction for End-to-End Text-Based Speech Editing](https://arxiv.org/pdf/2202.09950) (ICASSP 2022)  
 [Demo page](https://hairuo55.github.io/CampNet)
 - [A3T: Alignment-Aware Acoustic and Text Pretraining for Speech Synthesis and Editing](https://proceedings.mlr.press/v162/bai22d/bai22d.pdf) (ICML 2022)  
